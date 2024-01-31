@@ -142,3 +142,19 @@ for char in frequency_analysis_result:
 
 # Impresión de la tabla final.
 print(frequency_analysis_table, "\n")
+
+max_letter: str = max(frequency_analysis_result.items(), key=lambda x: x[1])[0]
+
+from utils.constants.alphabet import alphabet
+
+displacement = (alphabet.index(max_letter) - alphabet.index("e"))
+
+if (displacement < 0):
+    displacement = len(alphabet) + displacement
+
+print("Diferencia entre la letra e y el máximo del texto", max_letter, ":", displacement, "\n")
+
+for value in range(len(alphabet)):
+    key_to_test = displacement % len(alphabet)
+    displacement += 1
+    print("Probando la llave", key_to_test, "el resultado es:\n", decrypt_caesar(encrypted_text, key_to_test), "\n")

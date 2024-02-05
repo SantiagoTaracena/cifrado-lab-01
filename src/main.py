@@ -20,6 +20,10 @@ from utils.constants.official_frequency_analysis import official_frequency_analy
 # Cantidad de argumentos a pasar al programa.
 ARGUMENTS: int = 4
 
+# Paths constantes para los archivos de salida.
+ENCRYPTED_OUTPUT_PATH: str = "./out/encrypted-output.txt"
+DECRYPTED_OUTPUT_PATH: str = "./out/decrypted-output.txt"
+
 # Verificación del uso correcto de archivos.
 if (len(sys.argv) != ARGUMENTS):
     print(f"\nUsage: python {sys.argv[0]} <input-file>.txt <mode> <key>\n")
@@ -48,14 +52,14 @@ if (method == "caesar"):
     encrypted_text: str = encrypt_caesar(clean_text, key)
 
     # Escritura del texto encriptado resultante en un archivo.
-    with open("./out/encrypted-output.txt", "w", encoding="utf-8") as file:
+    with open(ENCRYPTED_OUTPUT_PATH, "w", encoding="utf-8") as file:
         file.write(encrypted_text)
 
     # Decriptación del texto por el método de cifrado de César.
     decrypted_text: str = decrypt_caesar(encrypted_text, key)
 
     # Escritura del texto decriptado resultante en un archivo.
-    with open("./out/decrypted-output.txt", "w", encoding="utf-8") as file:
+    with open(DECRYPTED_OUTPUT_PATH, "w", encoding="utf-8") as file:
         file.write(decrypted_text)
 
     # Impresión de los resultados.
@@ -86,14 +90,14 @@ elif (method == "affine"):
     encrypted_text: str = encrypt_affine(clean_text, a, b)
 
     # Escritura del texto encriptado resultante en un archivo.
-    with open("./out/encrypted-output.txt", "w", encoding="utf-8") as file:
+    with open(ENCRYPTED_OUTPUT_PATH, "w", encoding="utf-8") as file:
         file.write(encrypted_text)
 
     # Decriptación del texto por el método de cifrado de Afines.
     decrypted_text: str = decrypt_affine(encrypted_text, a, b)
 
     # Escritura del texto decriptado resultante en un archivo.
-    with open("./out/decrypted-output.txt", "w", encoding="utf-8") as file:
+    with open(DECRYPTED_OUTPUT_PATH, "w", encoding="utf-8") as file:
         file.write(decrypted_text)
 
     # Impresión de los resultados.
@@ -109,14 +113,14 @@ elif (method == "vigenere"):
     encrypted_text: str = encrypt_vigenere(clean_text, key)
 
     # Escritura del texto encriptado resultante en un archivo.
-    with open("./out/encrypted-output.txt", "w", encoding="utf-8") as file:
+    with open(ENCRYPTED_OUTPUT_PATH, "w", encoding="utf-8") as file:
         file.write(encrypted_text)
 
     # Decriptación del texto por el método de cifrado de Vigenére.
     decrypted_text = decrypt_vigenere(encrypted_text, key)
 
     # Escritura del texto decriptado resultante en un archivo.
-    with open("./out/decrypted-output.txt", "w", encoding="utf-8") as file:
+    with open(DECRYPTED_OUTPUT_PATH, "w", encoding="utf-8") as file:
         file.write(decrypted_text)
 
     # Impresión de los resultados.

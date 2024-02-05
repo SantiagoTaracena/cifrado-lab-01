@@ -29,16 +29,22 @@ method: str = sys.argv[2]
 # Limpieza del texto ingresado.
 clean_encrypted_text: str = clean_up_text(encrypted_text)
 
+# Análisis de frecuencia del texto encriptado.
 frequency_analysis_result: dict[str, float] = frequency_analysis(clean_encrypted_text)
 
+# Verificación de que el método a utilizar sea el método de César.
 if (method == "caesar"):
 
+    # Búsqueda mediante el método de fuerza bruta para descifrar un texto con el método de César.
     caesar_brute_force(clean_encrypted_text, frequency_analysis_result)
 
+# Verificación de que el método a utilizar sea el método de Afines.
 elif (method == "affine"):
 
-    affine_brute_force(clean_encrypted_text, (22, 24), (5, 9))
+    # Búsqueda mediante el método de fuerza bruta para descifrar un texto con el método de César.
+    affine_brute_force(clean_encrypted_text, a_val_range=(22, 24), b_val_range=(5, 10))
 
+# Verificación de que el método a utilizar sea el método de Vigenére.
 elif (method == "vigenere"):
 
     ...

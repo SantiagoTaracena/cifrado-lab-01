@@ -13,6 +13,7 @@ from utils.clean_up_text import clean_up_text
 from utils.frequency_analysis import frequency_analysis
 from utils.caesar_brute_force import caesar_brute_force
 from utils.affine_brute_force import affine_brute_force
+from utils.vigenere_brute_force import vigenere_brute_force
 
 # Módulos necesarios para el desarrollo del laboratorio.
 ARGUMENTS: int = 3
@@ -41,13 +42,14 @@ if (method == "caesar"):
 # Verificación de que el método a utilizar sea el método de Afines.
 elif (method == "affine"):
 
-    # Búsqueda mediante el método de fuerza bruta para descifrar un texto con el método de César.
+    # Búsqueda mediante el método de fuerza bruta para descifrar un texto con el método de Afines.
     affine_brute_force(clean_encrypted_text, a_val_range=(22, 24), b_val_range=(5, 10))
 
 # Verificación de que el método a utilizar sea el método de Vigenére.
 elif (method == "vigenere"):
 
-    ...
+    # Búsqueda mediante el método de fuerza bruta para descifrar un texto con el método de Vigenére.
+    vigenere_brute_force(clean_encrypted_text, key_lenght=4)
 
 # Caso en el que el método de decriptado sea incorrecto.
 else:

@@ -11,7 +11,7 @@ from utils.affine import decrypt_affine
 from utils.text_entropy import text_entropy
 
 # Función affine_brute_force, que prueba a fuerza bruta desencriptar un texto cifrado con Afines.
-def affine_brute_force(encrypted_text, a_val_range: tuple[int], b_val_range: tuple[int]):
+def affine_brute_force(encrypted_text: str, a_val_range: tuple[int], b_val_range: tuple[int]) -> None:
 
     # Resultados de la decriptación.
     decryption_results: dict[int, str] = dict()
@@ -45,4 +45,3 @@ def affine_brute_force(encrypted_text, a_val_range: tuple[int], b_val_range: tup
     with open("./out/brute-force-decryption-results.txt", "w", encoding="utf-8") as file:
         for key in sorted_keys:
             file.write(f"key {key}: {decryption_results[key]}\n\n")
-
